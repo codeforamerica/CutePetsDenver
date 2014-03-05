@@ -1,7 +1,7 @@
 CutiesInDenver
 ==============
 
-# Post a random adoptable pet in Denver to a twitter feed.
+# Post a random adoptable pet from Denver's shelter to a twitter feed.
 
 Project of [Becky Boone](https://github.com/boonrs) and Drew during our fellowship at Code for America in 2014.
 
@@ -11,11 +11,11 @@ Copy  **config_template.yml** to **config.yml** and add twitter keys.
 ###ABOUT
 A twitter bot that pulls data from [Adopt-A-Pet-Denver](https://github.com/dviramontes/Adopt-a-Pet-Denver) an API created by [David Viramontes](https://github.com/dviramontes/) and me to serve data for animals currently in Denver animal shelters ready for adoption.
 
-**Sample JSON response:** 
+**Links to API and Bot** 
 
-[Twitter bot](http://twitter.com/CutiesInDenver)
+* [Twitter bot](http://twitter.com/CutiesInDenver)
 
-[API](http://adopt-a-pet-denver.herokuapp.com/api)
+* [API](http://adopt-a-pet-denver.herokuapp.com/api)
 
 -----------------------
 

@@ -5,6 +5,9 @@ CutiesInDenver
 
 Project of [Becky Boone](https://github.com/boonrs) and Drew during our fellowship at Code for America in 2014.
 
+###Setup
+Copy  **config_template.yml** to **config.yml** and add twitter keys.
+
 ###ABOUT
 A twitter bot that pulls data from [Adopt-A-Pet-Denver](https://github.com/dviramontes/Adopt-a-Pet-Denver) an API created by [David Viramontes](https://github.com/dviramontes/) and me to serve data for animals currently in Denver animal shelters ready for adoption.
 

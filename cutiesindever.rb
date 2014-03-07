@@ -26,7 +26,7 @@ end
 greetings = JSON.parse( IO.read("greetings.json") )
 
 #grab a random greeting from the list
-randomgreeting = greetings[rand(greetings.length)]
+randomgreeting = greetings.sample
 
 #parse the json into a hash
 animaldata = JSON.parse(response.body);
@@ -42,5 +42,6 @@ mytweet.remove_double_whitespace
 File.open('image.png', 'wb') do |file|
 	file << open(animaldata['pic']).read
 	#post the tweet
-	client.update_with_media(mytweet, File.open(file))
+	#client.update_with_media(mytweet, File.open(file))
+	puts randomgreeting
 end

@@ -26,15 +26,18 @@ end
 #parse the json into a hash
 animaldata = JSON.parse(response.body);
 
+#remove this after we add it to the API
+animaldata['link'] = "http://www.petharbor.com/pet.asp?uaid=DNVR." + animaldata['id']
+
 #building the tweet sentence
-mytweet = "Hi! My name is " + animaldata['name'].my_titleize + ". " + animaldata['desc'].strip_html.slice(0..80) + "..."
+mytweet = "Hi! My name is " + animaldata['name'].my_titleize + ". " + animaldata['desc'].strip_html.slice(0..65) + "... " + animaldata['link']
 
 #post the tweet
 #client.update(mytweet)
 
 File.open('image.png', 'wb') do |file|
 	file << open(animaldata['pic']).read
+	#post the tweet
 	client.update_with_media(mytweet, File.open(file))
+	# puts "ID: " + animaldata['id'] + " My link: " + animaldata['link'];
 end
-
-#error over 140 characters

@@ -5,5 +5,9 @@ class String
 	def strip_html
 		gsub(/<\/?[^>]*>/, "")
 	end
+	def remove_double_whitespace
+		gsub!(/\s\s+/,' ')
+	end
 end
+
 

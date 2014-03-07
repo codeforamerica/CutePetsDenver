@@ -42,6 +42,6 @@ mytweet.remove_double_whitespace
 File.open('image.png', 'wb') do |file|
 	file << open(animaldata['pic']).read
 	#post the tweet
-	#client.update_with_media(mytweet, File.open(file))
-	puts randomgreeting
+	client.update_with_media(mytweet, File.open(file))
+	#puts randomgreeting
 end

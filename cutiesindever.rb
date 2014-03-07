@@ -15,12 +15,12 @@ response =  Net::HTTP.get_response(URI.parse(url))
 # get json
 # parson json
 
-#client = Twitter::REST::Client.new do |config|
-#	config.consumer_key = ENV.fetch('consumer_key')
-#	config.consumer_secret = ENV.fetch('consumer_secret')
-#	config.access_token = ENV.fetch('access_token')
-#	config.access_token_secret = ENV.fetch('access_token_secret')
-#end
+client = Twitter::REST::Client.new do |config|
+	config.consumer_key = ENV.fetch('consumer_key')
+	config.consumer_secret = ENV.fetch('consumer_secret')
+	config.access_token = ENV.fetch('access_token')
+	config.access_token_secret = ENV.fetch('access_token_secret')
+end
 
 #parse greetings json
 greetings = JSON.parse( IO.read("greetings.json") )

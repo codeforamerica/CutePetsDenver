@@ -11,7 +11,7 @@ spec/reports
 test/tmp
 test/version_tmp
 tmp
-config.yml
+.env
 
 # YARD artifacts
 .yardoc

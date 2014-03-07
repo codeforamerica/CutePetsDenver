@@ -22,6 +22,12 @@ client = Twitter::REST::Client.new do |config|
 	config.access_token_secret = ENV.fetch('access_token_secret')
 end
 
+#parse greetings json
+greetings = JSON.parse( IO.read("greetings.json") )
+
+#grab a random greeting from the list
+randomgreeting = greetings.sample
+
 #parse the json into a hash
 animaldata = JSON.parse(response.body);
 
@@ -29,7 +35,7 @@ animaldata = JSON.parse(response.body);
 animaldata['link'] = "http://www.petharbor.com/pet.asp?uaid=DNVR." + animaldata['id']
 
 #building the tweet sentence
-mytweet = "Hi! My name is " + animaldata['name'].my_titleize + ". " + animaldata['desc'].strip_html.slice(0..65) + "... " + animaldata['link']
+mytweet = randomgreeting + " " + animaldata['name'].my_titleize + ". " + animaldata['desc'].strip_html.slice(0..65) + "... " + animaldata['link']
 mytweet.remove_double_whitespace
 
 #post the tweet
@@ -37,4 +43,5 @@ File.open('image.png', 'wb') do |file|
 	file << open(animaldata['pic']).read
 	#post the tweet
 	client.update_with_media(mytweet, File.open(file))
+	#puts randomgreeting
 end

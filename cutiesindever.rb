@@ -1,26 +1,25 @@
-require "Twitter"
+require "twitter"
 require "yaml"
 require "net/http"
 require 'json'
 require 'open-uri'
+require 'dotenv'
 
 require_relative 'string_function'
+Dotenv.load
 
 
 url = 'http://adopt-a-pet-denver.herokuapp.com/api'
 response =  Net::HTTP.get_response(URI.parse(url))
 
-
 # get json
 # parson json
-yaml = YAML.load_file('config.yml')
-c = yaml['en']['config']
 
 client = Twitter::REST::Client.new do |config|
-	config.consumer_key = c['consumer_key']
-	config.consumer_secret = c['consumer_secret']
-	config.access_token = c['access_token']
-	config.access_token_secret = c['access_token_secret']
+	config.consumer_key = ENV.fetch('consumer_key')
+	config.consumer_secret = ENV.fetch('consumer_secret')
+	config.access_token = ENV.fetch('access_token')
+	config.access_token_secret = ENV.fetch('access_token_secret')
 end
 
 #parse the json into a hash
@@ -34,12 +33,8 @@ mytweet = "Hi! My name is " + animaldata['name'].my_titleize + ". " + animaldata
 mytweet.remove_double_whitespace
 
 #post the tweet
-#client.update(mytweet)
-
 File.open('image.png', 'wb') do |file|
 	file << open(animaldata['pic']).read
 	#post the tweet
 	client.update_with_media(mytweet, File.open(file))
-	#test output
-	#puts "My tweet " + mytweet.remove_double_whitespace
 end

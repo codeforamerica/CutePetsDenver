@@ -1,3 +1,5 @@
+require "twitter"
+
 class Twit
   attr_reader :pet
 

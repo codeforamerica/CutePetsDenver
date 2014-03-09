@@ -1,3 +1,5 @@
+require 'json'
+
 class Greeting
   FILE = "lib/greetings.json"
 

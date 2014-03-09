@@ -1,3 +1,7 @@
+require "net/http"
+require 'json'
+require 'open-uri'
+
 class AdoptAPet
   URL = 'http://adopt-a-pet-denver.herokuapp.com/api'
 

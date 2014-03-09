@@ -8,7 +8,6 @@ require 'dotenv'
 require_relative 'extensions/string'
 Dotenv.load
 
-
 url = 'http://adopt-a-pet-denver.herokuapp.com/api'
 response =  Net::HTTP.get_response(URI.parse(url))
 
@@ -20,7 +19,7 @@ client = Twitter::REST::Client.new do |config|
 end
 
 #parse greetings json
-greetings = JSON.parse( IO.read("greetings.json") )
+greetings = JSON.parse( IO.read("lib/greetings.json") )
 
 #grab a random greeting from the list
 randomgreeting = greetings.sample

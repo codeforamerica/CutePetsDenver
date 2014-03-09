@@ -5,15 +5,12 @@ require 'json'
 require 'open-uri'
 require 'dotenv'
 
-require_relative 'string_function'
+require_relative 'extensions/string'
 Dotenv.load
 
 
 url = 'http://adopt-a-pet-denver.herokuapp.com/api'
 response =  Net::HTTP.get_response(URI.parse(url))
-
-# get json
-# parson json
 
 client = Twitter::REST::Client.new do |config|
 	config.consumer_key = ENV.fetch('consumer_key')

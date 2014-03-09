@@ -14,7 +14,6 @@ class Twit
   end
 
   def client
-    Dotenv.load
     Twitter::REST::Client.new do |config|
       config.consumer_key = ENV.fetch('consumer_key')
       config.consumer_secret = ENV.fetch('consumer_secret')

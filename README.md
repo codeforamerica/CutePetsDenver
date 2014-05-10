@@ -3,7 +3,7 @@ CutiesInDenver
 
 # Post a random adoptable pet from Denver's shelter to a twitter feed.
 
-Project of [Becky Boone](https://github.com/boonrs) and Drew during our fellowship at Code for America in 2014.
+Project of [Becky Boone](https://github.com/boonrs) and [Drew](https://github.com/drewrwilson) during our fellowship at Code for America in 2014.
 
 ## Setup
 
@@ -26,7 +26,7 @@ If you're using a Mac or Linux, you can do this in bash by running these command
 
 
 ## About
-A twitter bot that pulls data from [Adopt-A-Pet-Denver](https://github.com/dviramontes/Adopt-a-Pet-Denver) an API created by [David Viramontes](https://github.com/dviramontes/) and me to serve data for animals currently in Denver animal shelters ready for adoption.
+A twitter bot that pulls data from [Adopt-A-Pet-Denver](https://github.com/dviramontes/Adopt-a-Pet-Denver) an API created by [David Viramontes](https://github.com/dviramontes/) and [Drew](https://github.com/drewrwilson) to serve data for animals currently in Denver animal shelters ready for adoption.
 
 **Links to API and Bot**
 

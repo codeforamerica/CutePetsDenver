@@ -25,7 +25,7 @@ If you're using a Mac or Linux, you can do this in bash by running these command
 `export access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX `
 
 
-## ABOUT
+## About
 A twitter bot that pulls data from [Adopt-A-Pet-Denver](https://github.com/dviramontes/Adopt-a-Pet-Denver) an API created by [David Viramontes](https://github.com/dviramontes/) and me to serve data for animals currently in Denver animal shelters ready for adoption.
 
 **Links to API and Bot**

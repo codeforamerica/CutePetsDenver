@@ -16,7 +16,18 @@ A twitter bot that pulls data from [Adopt-A-Pet-Denver](https://github.com/dvira
 
 ## Setup
 
-### Get your API keys
+#### Download this project. 
+
+The command in your terminal should look something like this:
+
+    git clone https://github.com/drewrwilson/CutiesInDenver.git
+    cd CutiesInDenver
+
+#### Install the prerequisites:
+
+    bundle install
+
+#### Get your API keys
 
 You need to sign up for a twitter API. You'll need all of the following:
 * consumer key
@@ -24,14 +35,30 @@ You need to sign up for a twitter API. You'll need all of the following:
 * access token
 * access token secret
 
-### Setup your environment variables
+#### Setup your environment variables
 
 If you're using a Mac or Linux, you can do this in bash by running these commands:
 
-`export consumer_key=XXXXXXXXXXXXXXXXXXXXXX `
-`export consumer_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX `
-`export access_token=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX `
-`export access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX `
+````
+export consumer_key=XXXXXXXXXXXXXXXXXXXXXX
+export consumer_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+export access_token=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+export access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+````
+
+Alternatively, you can set those properties in a file named ".env" (it looks the same, minus the 'export' in front):
+
+````
+consumer_key=XXXXXXXXXXXXXXXXXXXXXX
+consumer_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+access_token=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+````
+
+## Running the app
+
+Running `rake` from the project directory should result in tweeting about a random adoptable pet.
+
 
 -----------------------
 

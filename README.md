@@ -46,14 +46,7 @@ export access_token=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 export access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ````
 
-Alternatively, you can set those properties in a file named ".env" (it looks the same, minus the 'export' in front):
-
-````
-consumer_key=XXXXXXXXXXXXXXXXXXXXXX
-consumer_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-access_token=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-````
+Alternatively, you can set those properties in a file named ".env". The example file, template.env, can be renamed to .env and modified.
 
 ## Running the app
 

@@ -5,6 +5,8 @@ class Twit
 
   def initialize(pet)
     @pet = pet
+    @errlog = Logger.new(STDERR)
+    @errlog.level = Logger::WARN #set to Logger:WARN to avoid seing status messages
   end
 
   def greeting
@@ -17,10 +19,16 @@ class Twit
 
   def client
     Twitter::REST::Client.new do |config|
-      config.consumer_key = ENV.fetch('consumer_key')
-      config.consumer_secret = ENV.fetch('consumer_secret')
-      config.access_token = ENV.fetch('access_token')
-      config.access_token_secret = ENV.fetch('access_token_secret')
+      begin
+        config.consumer_key = ENV.fetch('consumer_key')
+        config.consumer_secret = ENV.fetch('consumer_secret')
+        config.access_token = ENV.fetch('access_token')
+        config.access_token_secret = ENV.fetch('access_token_secret')
+
+      rescue KeyError
+        @errlog.error "What are your twitter keys? I see none in env. Did you read the README? Specifically,git  #{$!}"
+      end
+
     end
   end
 

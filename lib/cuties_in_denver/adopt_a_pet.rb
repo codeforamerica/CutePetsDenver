@@ -3,9 +3,15 @@ require 'json'
 require 'open-uri'
 
 class AdoptAPet
-  URL = 'http://adopt-a-pet-denver.herokuapp.com/api'
+  URL = 'http://adopt-a-pet-mesa.herokuapp.com/api'
 
   def self.random
-      Pet.new(JSON.parse(Net::HTTP.get_response(URI.parse(URL)).body))
+    pet = fetch_pet while pet.nil? || pet.error?
+    pet
+  end
+
+  private
+  def self.fetch_pet
+    Pet.new(JSON.parse(Net::HTTP.get_response(URI.parse(URL)).body))
   end
 end

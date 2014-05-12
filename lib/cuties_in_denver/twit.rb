@@ -1,4 +1,5 @@
 require "twitter"
+require "logger"
 
 class Twit
   attr_reader :pet

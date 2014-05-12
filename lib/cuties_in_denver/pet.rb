@@ -6,7 +6,7 @@ class Pet
   end
 
   def link
-    "http://www.petharbor.com/pet.asp?uaid=DNVR." + id
+    attributes['link']
   end
 
   def name

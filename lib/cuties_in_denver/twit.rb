@@ -1,5 +1,6 @@
 require "twitter"
 require "logger"
+require "pp"
 
 class Twit
   attr_reader :pet
@@ -15,7 +16,34 @@ class Twit
   end
 
   def message
-    greeting + " " + pet.name + ". " + pet.desc.slice(0..65) + "... " + pet.link
+    PP.pp(pet)
+
+    if pet.sex == 'M'
+      gender = "male"
+    elsif pet.sex == 'F'
+      gender = "female"
+    else
+      gender = ''
+    end
+
+    # if it's a "Small and Fuzzy" just list the breed,
+    # if it's a rabbit list it as an X rabbit
+    # if it's a cat of dog just list the breed and not 'cat' or 'dog'
+    # TODO deal with multi-breed dogs
+
+    if pet.type == "Small & Furry"
+      animal = pet.breed
+    elsif pet.type == "Rabbit"
+      animal = pet.breed + " " + "Rabbit"
+    else
+      animal = pet.breed
+    end
+
+    greeting +
+    " I'm " + pet.name + ". " +
+    " a " + gender +
+    " " + animal +
+    " " + pet.link
   end
 
   def client
@@ -34,9 +62,11 @@ class Twit
   end
 
   def tweet
-    File.open('image.png', 'wb') do |file|
-      file << open(pet.pic).read
-      client.update_with_media(message, File.open(file))
-    end
+    #File.open('image.png', 'wb') do |file|
+    #  file << open(pet.pic).read
+    #  client.update_with_media(message, File.open(file))
+    #end
+    # TODO get picture tweets working again
+    client.update(message)
   end
 end

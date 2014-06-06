@@ -1,6 +1,7 @@
 require "twitter"
 require "logger"
 require "pp"
+require "open-uri"
 
 class Twit
   attr_reader :pet
@@ -40,8 +41,8 @@ class Twit
     end
 
     greeting +
-    " I'm " + pet.name + ". " +
-    " a " + gender +
+    " " + pet.name + ". " +
+    "A " + gender +
     " " + animal +
     " " + pet.link
   end
@@ -62,11 +63,8 @@ class Twit
   end
 
   def tweet
-    #File.open('image.png', 'wb') do |file|
-    #  file << open(pet.pic).read
-    #  client.update_with_media(message, File.open(file))
-    #end
-    # TODO get picture tweets working again
-    client.update(message)
+    uri = URI.parse(pet.pic)
+    media = uri.open
+    client.update_with_media(message, media)
   end
 end

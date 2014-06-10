@@ -32,6 +32,7 @@ class AdoptAPet
       "link" => "https://www.petfinder.com/petdetail/" + p['id']['$t'],
       "name" => p['name']['$t'],
       "pic" => p['media']['photos']['photo'][2]['$t'],
+      # TODO which photo (of three) is the best? If there a way we can figure this out?
       # TODO deal with missing photos
       "id" => p['id']['$t'],
       "sex" => p['sex']['$t'],

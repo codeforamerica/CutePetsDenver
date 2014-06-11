@@ -27,21 +27,29 @@ class Twit
       gender = ''
     end
 
+    if pet.breed.length == 1
+      breed = pet.breed[0]
+    else
+      breed = pet.breed.join("/") + " mix"
+    end
+
     # if it's a "Small and Fuzzy" just list the breed,
     # if it's a rabbit list it as an X rabbit
     # if it's a cat of dog just list the breed and not 'cat' or 'dog'
     # TODO deal with multi-breed dogs
 
-    if pet.type == "Small & Furry"
-      animal = pet.breed
+    if pet.type == "Small & Furry" or pet.type == "Scales, Fins & Others"
+      animal = breed
     elsif pet.type == "Rabbit"
-      animal = pet.breed + " " + "Rabbit"
+      animal = breed + " " + "Rabbit"
+    elsif pet.type == "Pig"
+      animal = breed + " " + "Pig"
     else
-      animal = pet.breed
+      animal = breed
     end
 
     greeting +
-    " " + pet.name + ". " +
+    " " + pet.name.capitalize + ". " +
     "A " + gender +
     " " + animal +
     " " + pet.link

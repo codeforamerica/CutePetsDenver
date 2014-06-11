@@ -28,15 +28,29 @@ class AdoptAPet
 
     p = json['petfinder']['pet']
 
+    b = p['breeds']['breed']
+    if b.kind_of?(Array) #if there are multiple breeds put them in a list
+      breeds = []
+      for item in b
+        breeds.push(item['$t'])
+      end
+    else
+      breeds = [b['$t']]
+    end
+
+    if p['media'] != nil
+      picture = p['media']['photos']['photo'][2]['$t']
+    else
+      picture = nil
+    end
+
     pet = {
       "link" => "https://www.petfinder.com/petdetail/" + p['id']['$t'],
       "name" => p['name']['$t'],
-      "pic" => p['media']['photos']['photo'][2]['$t'],
-      # TODO which photo (of three) is the best? If there a way we can figure this out?
-      # TODO deal with missing photos
+      "pic" => picture,
       "id" => p['id']['$t'],
       "sex" => p['sex']['$t'],
-      "breed" => p['breeds']['breed']['$t'],
+      "breed" => breeds,
       "type" => p['animal']['$t']
       #"desc" => p['description']['$t'] or ''
     }

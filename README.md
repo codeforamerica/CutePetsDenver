@@ -1,37 +1,55 @@
-CutiesInDenver
+CutiesInBoston
 ==============
 
-# Post a random adoptable pet from Denver's shelter to a twitter feed.
+Post a random adoptable pet from the Boston MSPCA to a twitter feed.
 
-Project of [Becky Boone](https://github.com/boonrs) and [Drew](https://github.com/drewrwilson) during our fellowship at Code for America in 2014.
+Project of [Becky Boone](https://github.com/boonrs) and [Drew](https://github.com/drewrwilson) during their fellowship at Code for America in 2014.
+
+Modified by [CodeforBoston](codeforboston.com) to work with the Petfinder.com API
 
 ## About
-A twitter bot that pulls data from [Adopt-A-Pet-Denver](https://github.com/dviramontes/Adopt-a-Pet-Denver) an API created by [David Viramontes](https://github.com/dviramontes/) and [Drew](https://github.com/drewrwilson) to serve data for animals currently in Denver animal shelters ready for adoption.
+A twitter bot that pulls data from the Petfinder API and tweets out adoptable pets from the [Boston MSPCA](http://www.mspca.org/adoption/boston/).
+
+It should be easily extendable to other shelters using petfinder.com to list their animals.
 
 **Links to API and Bot**
 
-* [Twitter bot](http://twitter.com/CutiesInDenver)
+* [Twitter bot](http://twitter.com/CutiesInBoston)
 
-* [API](http://adopt-a-pet-denver.herokuapp.com/api)
+* [API](https://www.petfinder.com/developers/api-docs)
 
 ## Setup
+
+### Install
+
+    bundle install
 
 ### Get your API keys
 
 You need to sign up for a twitter API. You'll need all of the following:
-* consumer key
-* consumer secret
-* access token
-* access token secret
+* consumer_key
+* consumer_secret
+* access_token
+* access_token_secret
+
+You'll also need petfinder keys
+* petfinder_key
+* petfinder_secret
 
 ### Setup your environment variables
 
 If you're using a Mac or Linux, you can do this in bash by running these commands:
 
-`export consumer_key=XXXXXXXXXXXXXXXXXXXXXX `
-`export consumer_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX `
-`export access_token=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX `
-`export access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX `
+    export consumer_key=XXXXXXXXXXXXXXXXXXXXXX
+    export consumer_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    export access_token=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    export access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    export petfinder_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    export petfinder_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+### Tweet
+
+    rake tweet
 
 -----------------------
 

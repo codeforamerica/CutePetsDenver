@@ -8,6 +8,7 @@ Project of [Becky Boone](https://github.com/boonrs) and [Drew](https://github.co
 Modified by [CodeforBoston](codeforboston.com) to work with the Petfinder.com API
 
 ## About
+
 A twitter bot that pulls data from the Petfinder API and tweets out adoptable pets from the [Boston MSPCA](http://www.mspca.org/adoption/boston/).
 
 It should be easily extendable to other shelters using petfinder.com to list their animals.
@@ -16,29 +17,47 @@ It should be easily extendable to other shelters using petfinder.com to list the
 
 * [Twitter bot](http://twitter.com/CutiesInBoston)
 
-* [API](https://www.petfinder.com/developers/api-docs)
+* [API Docs`](https://www.petfinder.com/developers/api-docs)
 
 ## Setup
 
-### Install
+### Install dependencies (other gems, aka Ruby libraries)
 
     bundle install
 
 ### Get your API keys
 
 You need to sign up for a twitter API. You'll need all of the following:
+
 * consumer_key
 * consumer_secret
 * access_token
 * access_token_secret
 
-You'll also need petfinder keys
+You'll also need Petfinder keys
+
 * petfinder_key
 * petfinder_secret
 
-### Setup your environment variables
+To get them, first register for a Petfinder account: https://users.petfinder.com/login
 
-If you're using a Mac or Linux, you can do this in bash by running these commands:
+Then sign up for the API keys: https://www.petfinder.com/developers/api-key
+
+
+### Set up your environment variables
+
+We use dotenv to manage environment variables. When you have your keys, add them to a new file saved as `.env`. Make sure to include the preceding `.`. Mac OS X will warn you about creating a dotfile, but no worries, all the cool kids are doing it.
+
+However, make sure that there is a line `.env` in your `.gitignore` before staging or committing any changes. Never commit environment variables.
+
+    consumer_key=XXXXXXXXXXXXXXXXXXXXXX
+    consumer_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    access_token=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    petfinder_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    petfinder_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+If you don't want to deal with `.env`, you could run the following every time you open a new Terminal session, or store them in your `~/.bash_profile`.
 
     export consumer_key=XXXXXXXXXXXXXXXXXXXXXX
     export consumer_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -47,9 +66,15 @@ If you're using a Mac or Linux, you can do this in bash by running these command
     export petfinder_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     export petfinder_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
-### Tweet
+### How to Tweet
 
     rake tweet
+
+The tweet task is in the Rakefile, which invokes the rest of `cuties.rb`.
+
+### How to Tweet Periodically
+
+CutiesInDenver uses Heroku and the Heroku Scheduler plugin to tweet at regular intervals.
 
 -----------------------
 

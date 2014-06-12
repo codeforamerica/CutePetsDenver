@@ -1,10 +1,10 @@
 require 'dotenv'
 Dotenv.load
 
-require_relative 'lib/cuties_in_denver'
+require_relative 'lib/cuties'
 
 desc "Tweet random pet."
-task :twitter do 
+task :tweet do
   Twit.new(AdoptAPet.random).tweet
 end
 

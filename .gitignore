@@ -1,3 +1,4 @@
+template.env
 *.gem
 *.rbc
 .DS_Store

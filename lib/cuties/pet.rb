@@ -2,7 +2,7 @@ class Pet
   attr_reader :attributes
 
   def id
-    attributes['id'].strip_html
+    attributes['id']
   end
 
   def link
@@ -10,15 +10,27 @@ class Pet
   end
 
   def name
-    attributes['name'].strip_html.my_titleize
+    attributes['name']
   end
 
-  def desc
-    attributes['desc'].strip_html
+  def sex
+    attributes['sex']
   end
+
+  def breed
+    attributes['breed']
+  end
+
+  def type
+    attributes['type']
+  end
+
+  #def desc
+  #  attributes['desc'].strip_html
+  #end
 
   def pic
-    attributes['pic'].strip_html
+    attributes['pic']
   end
 
   def initialize(attributes)

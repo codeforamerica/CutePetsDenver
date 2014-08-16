@@ -1,13 +1,14 @@
-require "twitter"
-require "logger"
+require 'twitter'
+require 'logger'
+require 'english'
 
-class Twit
+class TwitterClient
   attr_reader :pet
 
   def initialize(pet)
     @pet = pet
     @errlog = Logger.new(STDERR)
-    @errlog.level = Logger::WARN #set to Logger:WARN to avoid seing status messages
+    @errlog.level = Logger::WARN # setting to avoid seeing status messages
   end
 
   def greeting
@@ -15,7 +16,7 @@ class Twit
   end
 
   def message
-    greeting + " " + pet.name + ". " + pet.desc.slice(0..65) + "... " + pet.link
+    greeting + ' ' + pet.name + '. ' + pet.desc.slice(0..65) + '... ' + pet.link
   end
 
   def client
@@ -27,7 +28,7 @@ class Twit
         config.access_token_secret = ENV.fetch('access_token_secret')
 
       rescue KeyError
-        @errlog.error "What are your twitter keys? I see none in env. Did you read the README? Specifically,git  #{$!}"
+        @errlog.error "What are your twitter keys? I see none in env. Did you read the README? Specifically,git  #{$ERROR_INFO}"
       end
 
     end

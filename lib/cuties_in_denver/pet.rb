@@ -1,5 +1,4 @@
-# Strip HTML from API response and set attributes for pet
-class SetPetAttributes
+class Pet
   attr_reader :attributes
 
   def id

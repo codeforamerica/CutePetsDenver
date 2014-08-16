@@ -32,7 +32,23 @@ Originally specific to Denver, it's been redeployed by a few cities. Check out [
 ### Run
 `rake`
 
-**Hat tips**
+## Deployment
+
+### Heroku 
+1. Download and install the [Heroku Toolbelt](from: https://toolbelt.heroku.com).
+1. Create heroku project: `heroku create [app name]`
+1. Push code: `heroku push heroku master`
+1. Add environment variables
+    1. `heroku config:set consumer_key="your_consumer_key_goes_here"`
+    1. `heroku config:set consumer_secret="your_consumer_secret_key_goes_here"`
+    1. `heroku config:set access_token="your_access_token_goes_here"`
+    1. `heroku config:set access_token_secret="your_access_token_secret_goes_here"`
+1. Schedule Tweets 
+    1. Add the **Heroku Scheduler** add on: `heroku addons:add scheduler`
+    1. Schedule tweets: `heroku addons:open scheduler`
+    1. In the task field: `rake`.
+
+## Hat tips
 
 * Kudos to [Darius](https://github.com/dariusk) for his [great guide](http://tinysubversions.com/2013/09/how-to-make-a-twitter-bot/) on how to make a twitter bot.
 

@@ -1,12 +1,14 @@
-CutiesInDenver
+CutePetsDenver
 ==============
 
 # Post a random adoptable pet from Denver's shelter to a twitter feed.
 
-Project of [Becky Boone](https://github.com/boonrs) and [Drew](https://github.com/drewrwilson) during our fellowship at Code for America in 2014.
+Originated as a project of [Team Denver](http://codeforamerica.org/cities/denver/) during the 2014 fellowship at Code for America.
 
 ## About
 A twitter bot that pulls data from [Adopt-A-Pet-Denver](https://github.com/dviramontes/Adopt-a-Pet-Denver) an API created by [David Viramontes](https://github.com/dviramontes/) and [Drew](https://github.com/drewrwilson) to serve data for animals currently in Denver animal shelters ready for adoption.
+
+Originally specific to Denver, it's been redeployed by a few cities. Check out [this twitter list](https://twitter.com/drewSaysGoVeg/cutepetseverywhere/members) to see where.
 
 **Links to API and Bot**
 
@@ -16,24 +18,19 @@ A twitter bot that pulls data from [Adopt-A-Pet-Denver](https://github.com/dvira
 
 ## Setup
 
-### Get your API keys
+### Twitter
+1. Create a new [twitter app](https://apps.twitter.com/).
+1. On the API key tab for the Twitter app, modify permissions so the app can **Read and Write**.
+1. Create an access token. On the API Key tab in Twitter for the app, click **Create my access token**
+1. Take note of the values for environment set up below.
+*Note:* It's important to change permissions to Read/Write before generating the access token. The access token is keyed for the specific access level and will not be updated when changing permissions.
 
-You need to sign up for a twitter API. You'll need all of the following:
-* consumer key
-* consumer secret
-* access token
-* access token secret
+### Environmental variables
+1. Create a local .env file: `cp template.env .env`
+1. Fill in the twitter keys created above. 
 
-### Setup your environment variables
-
-If you're using a Mac or Linux, you can do this in bash by running these commands:
-
-`export consumer_key=XXXXXXXXXXXXXXXXXXXXXX `
-`export consumer_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX `
-`export access_token=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX `
-`export access_token_secret=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX `
-
------------------------
+### Run
+`rake`
 
 **Hat tips**
 

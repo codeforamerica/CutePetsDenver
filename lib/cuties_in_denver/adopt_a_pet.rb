@@ -15,3 +15,4 @@ class AdoptAPet
     Pet.new(JSON.parse(Net::HTTP.get_response(URI.parse(URL)).body))
   end
 end
+

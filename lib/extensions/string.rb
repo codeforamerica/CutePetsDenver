@@ -10,5 +10,3 @@ class String
     doc.xpath("//text()").remove.text
 	end
 end
-
-

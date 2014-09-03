@@ -8,13 +8,15 @@ Originated as a project of [Team Denver](http://codeforamerica.org/cities/denver
 ## About
 A twitter bot that pulls data from [Adopt-A-Pet-Denver](https://github.com/dviramontes/Adopt-a-Pet-Denver) an API created by [David Viramontes](https://github.com/dviramontes/) and [Drew](https://github.com/drewrwilson) to serve data for animals currently in Denver animal shelters ready for adoption.
 
+A twitter bot that pulls data from a random pet in the U.S. using the [Petfinder gem](https://github.com/ehutzelman/petfinder).
+
 Originally specific to Denver, it's been redeployed by a few cities. Check out [this twitter list](https://twitter.com/drewSaysGoVeg/cutepetseverywhere/members) to see where.
 
-**Links to API and Bot**
+**Links to Petfinder gem and Bot**
 
 * [Twitter bot](http://twitter.com/CutiesInDenver)
 
-* [API](http://adopt-a-pet-denver.herokuapp.com/api)
+* [Petfinder gem](https://github.com/ehutzelman/petfinder)
 
 ## Setup
 
@@ -25,9 +27,13 @@ Originally specific to Denver, it's been redeployed by a few cities. Check out [
 1. Take note of the values for environment set up below.
 *Note:* It's important to change permissions to Read/Write before generating the access token. The access token is keyed for the specific access level and will not be updated when changing permissions.
 
+### Petfinder
+1. Get your [Petfinder API Key](https://www.petfinder.com/developers/api-key)
+
 ### Environmental variables
 1. Create a local .env file: `cp template.env .env`
-1. Fill in the twitter keys created above. 
+2. Fill in the twitter keys created above. 
+3. Fill in the API credentials created above.
 
 ### Run
 `rake`
@@ -39,10 +45,12 @@ Originally specific to Denver, it's been redeployed by a few cities. Check out [
 1. Create heroku project: `heroku create [app name]`
 1. Push code: `heroku push heroku master`
 1. Add environment variables
-    1. `heroku config:set consumer_key="your_consumer_key_goes_here"`
-    1. `heroku config:set consumer_secret="your_consumer_secret_key_goes_here"`
-    1. `heroku config:set access_token="your_access_token_goes_here"`
-    1. `heroku config:set access_token_secret="your_access_token_secret_goes_here"`
+    1. `heroku config:set TWITTER_KEY=your_twitter_key`
+    1. `heroku config:set TWITTER_SECRET=your_twitter_secret`
+    1. `heroku config:set OAUTH_TOKEN=your_oauth_token`
+    1. `heroku config:set OAUTH_TOKEN_SECRET=your_oauth_secret`
+    2. `heroku config:set PETFINDER_KEY=your_petfinder_key`
+    2. `heroku config:set PETFINDER_SECRET=your_petfinder_secret`
 1. Schedule Tweets 
     1. Add the **Heroku Scheduler** add on: `heroku addons:add scheduler`
     1. Schedule tweets: `heroku addons:open scheduler`

@@ -26,7 +26,6 @@ class Twit
     end
   end
 
-
   def tweet_pet
      File.open('image.png', 'wb') do |file|
       file << open(pet.photo_url).read

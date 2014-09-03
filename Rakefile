@@ -3,17 +3,16 @@ Dotenv.load
 
 require_relative 'lib/cuties_in_denver'
 
-desc "Tweet random pet."
-task :twitter do 
-  Twit.new(AdoptAPet.random).tweet
-end
 
 desc "Retrieve random pet via Petfinder"
 task :petfinder do 
-  RandomPetRetriever.retrieve_random_pet("CA148")
+  RandomPetRetriever.retrieve_random_pet
+end
+
+desc "Retrieve and construct tweet about pet via Petfinder"
+task :petfindertweet do 
+  pet = RandomPetRetriever.retrieve_random_pet
+  Twit.new(pet).tweet_pet
 end
 
 task :default => :twitter
-
-
-#CA148

@@ -1,5 +1,6 @@
 require "twitter"
 require "logger"
+require 'open-uri'
 
 class Twit
   attr_reader :pet
@@ -10,21 +11,13 @@ class Twit
     @errlog.level = Logger::WARN #set to Logger:WARN to avoid seing status messages
   end
 
-  def greeting
-    Greeting.new.random
-  end
-
-  def message
-    greeting + " " + pet.name + ". " + pet.desc.slice(0..65) + "... " + pet.link
-  end
-
   def client
     Twitter::REST::Client.new do |config|
       begin
-        config.consumer_key = ENV.fetch('consumer_key')
-        config.consumer_secret = ENV.fetch('consumer_secret')
-        config.access_token = ENV.fetch('access_token')
-        config.access_token_secret = ENV.fetch('access_token_secret')
+        config.consumer_key = ENV["TWITTER_KEY"]
+        config.consumer_secret = ENV["TWITTER_SECRET"]
+        config.access_token = ENV["OAUTH_TOKEN"]
+        config.access_token_secret = ENV["OAUTH_TOKEN_SECRET"]
 
       rescue KeyError
         @errlog.error "What are your twitter keys? I see none in env. Did you read the README? Specifically,git  #{$!}"
@@ -33,10 +26,13 @@ class Twit
     end
   end
 
-  def tweet
-    File.open('image.png', 'wb') do |file|
-      file << open(pet.pic).read
-      client.update_with_media(message, File.open(file))
-    end
+
+  def tweet_pet
+     File.open('image.png', 'wb') do |file|
+      file << open(pet.photo_url).read
+      tweet = "#{pet.description}... #{pet.profile_url}"
+      client.update_with_media(tweet, File.open(file))
+     end
   end
+
 end

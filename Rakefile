@@ -10,4 +10,4 @@ task :petfindertweet do
 end
 
 
-task :default => :twitter
+task :default => :petfindertweet

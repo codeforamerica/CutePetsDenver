@@ -1,31 +1,11 @@
 class Pet
-  attr_reader :attributes
+  attr_reader :description, :photo_url, :profile_url
 
-  def id
-    attributes['id'].strip_html
+  def initialize(attributes = {})
+    @description = attributes[:description]
+    @photo_url = attributes[:photo_url]
+    @profile_url = attributes[:profile_url]
   end
 
-  def link
-    attributes['link']
-  end
 
-  def name
-    attributes['name'].strip_html.my_titleize
-  end
-
-  def desc
-    attributes['desc'].strip_html
-  end
-
-  def pic
-    attributes['pic'].strip_html
-  end
-
-  def initialize(attributes)
-    @attributes =  attributes
-  end
-
-  def error?
-    attributes['code']
-  end
 end
